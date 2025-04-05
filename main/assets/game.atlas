@@ -1,0 +1,7 @@
+images {
+  image: "/main/assets/images/camera_frame.png"
+}
+images {
+  image: "/main/assets/images/player.png"
+}
+extrude_borders: 2
