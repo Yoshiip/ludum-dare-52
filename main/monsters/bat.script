@@ -1,0 +1,18 @@
+go.property("speed", 350)
+
+local function move()
+	local target_pos = vmath.vector3(math.random(-200, 200), math.random(-200, 200), 0)
+	go.animate(".", "position", go.PLAYBACK_ONCE_FORWARD, target_pos, go.EASING_LINEAR, 5)
+end
+
+function init(self)
+	move()
+end
+
+
+
+function update(self, dt)
+	-- Add update code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
+end

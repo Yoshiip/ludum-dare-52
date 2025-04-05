@@ -4,4 +4,10 @@ images {
 images {
   image: "/main/assets/images/player.png"
 }
+images {
+  image: "/main/assets/images/bat.png"
+}
+images {
+  image: "/main/assets/images/background.png"
+}
 extrude_borders: 2
