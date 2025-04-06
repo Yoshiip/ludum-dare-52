@@ -1,0 +1,28 @@
+function init(self)
+	msg.post(".", "acquire_input_focus")
+	self.current_scene = "menu_proxy"
+	msg.post(msg.url(nil, nil, self.current_scene), "async_load")
+end
+
+function change_scene(self, new_proxy)
+	if not new_proxy then
+		print("❌ ATTENTION : proxy invalide !")
+		return
+	end
+	print("Changing scene to:", new_proxy)
+	msg.post(msg.url(nil, nil, self.current_scene), "disable")
+	msg.post(msg.url(nil, nil, self.current_scene), "unload")
+	self.next_scene = new_proxy
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("change_scene") then
+		change_scene(self, message.proxy)
+	elseif message_id == hash("proxy_unloaded") then
+		msg.post(msg.url(nil, nil, self.next_scene), "async_load")
+		self.current_scene = self.next_scene
+	elseif message_id == hash("proxy_loaded") then
+		msg.post(sender, "init")
+		msg.post(sender, "enable")
+	end
+end

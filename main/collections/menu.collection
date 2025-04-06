@@ -1,22 +1,18 @@
 name: "menu"
 scale_along_z: 0
 embedded_instances {
-  id: "title"
-  data: "embedded_components {\n"
-  "  id: \"fff\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 128.0\\n"
-  "  y: 32.0\\n"
-  "}\\n"
-  "text: \\\"fdsfds\\\"\\n"
-  "font: \\\"/main/fonts/acme.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
-  "\"\n"
+  id: "menu"
+  data: "components {\n"
+  "  id: \"menu\"\n"
+  "  component: \"/main/assets/menu/menu.script\"\n"
   "}\n"
   ""
 }
 embedded_instances {
-  id: "background"
-  data: ""
+  id: "interface"
+  data: "components {\n"
+  "  id: \"menu\"\n"
+  "  component: \"/main/assets/menu/menu.gui\"\n"
+  "}\n"
+  ""
 }

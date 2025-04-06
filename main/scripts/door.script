@@ -1,0 +1,17 @@
+go.property("fame", 100)
+go.property("collection_id", hash("surface_proxy"))
+
+function update(self, dt)
+	msg.post("#label", "disable")
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("collision_response") then
+		msg.post("#label", "enable")
+
+		print(self.collection_id)
+		msg.post("player#script", "set_travel_to", {
+			collection_id = self.collection_id
+		})
+	end
+end

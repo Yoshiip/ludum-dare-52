@@ -1,0 +1,9 @@
+font: "/main/fonts/Acme-Regular.ttf"
+material: "/builtins/fonts/font.material"
+size: 80
+outline_alpha: 1.0
+outline_width: 2.0
+shadow_alpha: 0.5
+shadow_blur: 24
+shadow_y: 16.0
+characters: " !\"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"

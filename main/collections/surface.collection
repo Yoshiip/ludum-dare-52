@@ -1,33 +1,36 @@
 name: "surface"
+instances {
+  id: "camera"
+  prototype: "/main/go/camera.go"
+  position {
+    z: 100.0
+  }
+}
+instances {
+  id: "player"
+  prototype: "/main/go/player.go"
+}
+instances {
+  id: "door"
+  prototype: "/main/go/door.go"
+  position {
+    x: 352.0
+  }
+  component_properties {
+    id: "door"
+    properties {
+      id: "collection_id"
+      value: "level1_proxy"
+      type: PROPERTY_TYPE_HASH
+    }
+  }
+}
 scale_along_z: 0
 embedded_instances {
   id: "interface"
   data: "components {\n"
   "  id: \"gui\"\n"
   "  component: \"/main/gui.gui\"\n"
-  "}\n"
-  ""
-}
-embedded_instances {
-  id: "player"
-  data: "components {\n"
-  "  id: \"player\"\n"
-  "  component: \"/main/scripts/player.script\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"player\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "size {\\n"
-  "  x: 64.0\\n"
-  "  y: 64.0\\n"
-  "}\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/main/assets/game.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
   "}\n"
   ""
 }
@@ -44,9 +47,12 @@ embedded_instances {
   "}\\n"
   "\"\n"
   "  scale {\n"
-  "    x: 2.0\n"
-  "    y: 2.0\n"
+  "    x: 1.6\n"
+  "    y: 1.6\n"
   "  }\n"
   "}\n"
   ""
+  position {
+    z: -66.0
+  }
 }

@@ -1,5 +1,5 @@
 [bootstrap]
-main_collection = /main/main.collectionc
+main_collection = /main/collections/main.collectionc
 
 [script]
 shared_state = 1
@@ -14,9 +14,12 @@ input_method = HiddenInputField
 
 [html5]
 scale_mode = stretch
+splash_image = /main/assets/images/aymeri100_128.png
 
 [project]
-title = LudumDare57
+title = CaveSafari
+publisher = Aymeri
+developer = aymeri100.fr
 
 [graphics]
 default_texture_min_filter = nearest

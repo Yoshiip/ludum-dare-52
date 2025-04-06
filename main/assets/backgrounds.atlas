@@ -10,4 +10,7 @@ images {
 images {
   image: "/main/assets/images/surface.png"
 }
+images {
+  image: "/main/assets/images/light.png"
+}
 extrude_borders: 2
