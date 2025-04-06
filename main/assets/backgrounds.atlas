@@ -1,0 +1,13 @@
+images {
+  image: "/main/assets/images/bg_back.png"
+}
+images {
+  image: "/main/assets/images/bg_front.png"
+}
+images {
+  image: "/main/assets/images/background.png"
+}
+images {
+  image: "/main/assets/images/surface.png"
+}
+extrude_borders: 2

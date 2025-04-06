@@ -8,6 +8,18 @@ images {
   image: "/main/assets/images/bat.png"
 }
 images {
-  image: "/main/assets/images/background.png"
+  image: "/main/assets/images/slime.png"
+}
+images {
+  image: "/main/assets/images/ui/film.png"
+}
+images {
+  image: "/main/assets/images/ui/dof_cursor.png"
+}
+images {
+  image: "/main/assets/images/ui/dof_ticks.png"
+}
+images {
+  image: "/main/assets/images/door.png"
 }
 extrude_borders: 2

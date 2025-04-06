@@ -1,0 +1,190 @@
+script: "/main/scripts/interface.gui_script"
+fonts {
+  name: "acme"
+  font: "/main/fonts/acme.font"
+}
+fonts {
+  name: "default"
+  font: "/builtins/fonts/default.font"
+}
+textures {
+  name: "game"
+  texture: "/main/assets/game.atlas"
+}
+nodes {
+  position {
+    x: 149.0
+    y: 65.0
+  }
+  size {
+    x: 260.0
+    y: 88.0
+  }
+  color {
+    x: 0.2
+    y: 0.235
+    z: 0.341
+  }
+  type: TYPE_BOX
+  id: "films_left"
+  xanchor: XANCHOR_LEFT
+  yanchor: YANCHOR_BOTTOM
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: -83.0
+  }
+  size {
+    x: 80.0
+    y: 80.0
+  }
+  type: TYPE_PIE
+  id: "pie"
+  parent: "films_left"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 37.0
+  }
+  size {
+    x: 160.0
+    y: 40.0
+  }
+  type: TYPE_TEXT
+  text: "films left: 5\n"
+  ""
+  font: "acme"
+  id: "films_left_label"
+  parent: "films_left"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: -82.0
+  }
+  type: TYPE_BOX
+  texture: "game/film"
+  id: "icon"
+  parent: "films_left"
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 843.0
+    y: 52.0
+  }
+  size {
+    x: 200.0
+    y: 80.0
+  }
+  color {
+    x: 0.102
+    y: 0.102
+    z: 0.102
+  }
+  type: TYPE_BOX
+  id: "fame_box"
+  xanchor: XANCHOR_RIGHT
+  yanchor: YANCHOR_BOTTOM
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  size {
+    x: 200.0
+    y: 80.0
+  }
+  color {
+    x: 0.302
+    y: 0.502
+    z: 0.302
+  }
+  type: TYPE_PIE
+  id: "fame_pie"
+  parent: "fame_box"
+  inherit_alpha: true
+  outerBounds: PIEBOUNDS_RECTANGLE
+  pieFillAngle: 50.0
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  size {
+    x: 200.0
+    y: 80.0
+  }
+  type: TYPE_TEXT
+  text: "fame: 0"
+  font: "acme"
+  id: "fame_label"
+  parent: "fame_box"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 501.0
+    y: 31.0
+  }
+  type: TYPE_BOX
+  texture: "game/dof_ticks"
+  id: "dof_ticks"
+  yanchor: YANCHOR_BOTTOM
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 628.0
+    y: 31.0
+  }
+  scale {
+    x: 0.8
+    y: 0.8
+  }
+  type: TYPE_BOX
+  texture: "game/dof_cursor"
+  id: "dof_cursor"
+  yanchor: YANCHOR_BOTTOM
+  inherit_alpha: true
+  size_mode: SIZE_MODE_AUTO
+}
+nodes {
+  position {
+    x: 490.0
+    y: 80.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "1.0\n"
+  ""
+  font: "acme"
+  id: "text"
+  inherit_alpha: true
+}
+nodes {
+  position {
+    x: 607.0
+    y: 484.0
+  }
+  size {
+    x: 200.0
+    y: 100.0
+  }
+  type: TYPE_TEXT
+  text: "Great framing"
+  font: "acme"
+  id: "text1"
+  inherit_alpha: true
+}
+layers {
+  name: "layer"
+}
+material: "/builtins/materials/gui.material"
+adjust_reference: ADJUST_REFERENCE_PARENT

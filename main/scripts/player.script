@@ -1,50 +1,45 @@
-local SPEED = 50
+go.property("speed", 150)
+go.property("gravity", 250)
+go.property("max_y", 0)
+go.property("can_jump", true)
 
 function init(self)
 	self.velocity = vmath.vector3()
 	msg.post(".", "acquire_input_focus")
+	self.material = go.get("#sprite", "material")
 end
 
-function final(self)
-	-- Add finalization code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
 
 function update(self, dt)
-	local pos = go.get_position() -- <3>
-	pos = pos + self.velocity * dt -- <4>
-	go.set_position(pos) -- <5>
+	local pos = go.get_position()
 
+	if self.velocity ~= 0 then
+		sprite.set_hflip("#sprite", self.velocity.x < 0)
+	end
+	if pos.y <= self.max_y and self.velocity.y < 0 then
+		self.velocity.y = 0
+		pos.y = self.max_y
+		self.can_jump = true
+	else
+		self.velocity.y = self.velocity.y - self.gravity * dt
+		self.can_jump = false
+	end
+	
+	pos = pos + self.velocity * dt
+	go.set_position(pos)
+	
+	
 	self.velocity.x = 0
-	self.velocity.y = 0
-end
-
-function fixed_update(self, dt)
-	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
-	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
-	-- Physics section of game.project
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
-end
-
-function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
 end
 
 function on_input(self, action_id, action)
 	if action_id == hash("move_left") then
-		self.velocity.x = -SPEED
+		self.velocity.x = -self.speed
 	elseif action_id == hash("move_right") then
-		self.velocity.x = SPEED
+		self.velocity.x = self.speed
 	end
-end
 
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
+	if action_id == hash("jump") and self.can_jump then
+		self.velocity.y = 200
+	end
 end

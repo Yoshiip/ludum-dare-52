@@ -1,23 +1,9 @@
-local LAYERS_COUNT = 3
-
-local function spawn_layers()
-	for i = 1, LAYERS_COUNT, 1 do
-		local pos = vmath.vector3(0, -200 + i * 100, i * -50)
-		factory.create("#layerfactory", pos)
-	end
-end
-
-local function spawn_bats()
-	for i = 1, 20, 1 do
-		local pos = vmath.vector3(0, -200 + i * 100, -50)
-		local bat = factory.create("#batfactory", pos)
-	end
-end
+local game_data = require("main.game_data")
 
 function init(self)
-	spawn_layers()
-	spawn_bats()
-
+	-- Add initialization code here
+	-- Learn more: https://defold.com/manuals/script/
+	-- Remove this function if not needed
 end
 
 function final(self)
@@ -32,20 +18,20 @@ function update(self, dt)
 	-- Remove this function if not needed
 end
 
-function fixed_update(self, dt)
-	-- This function is called if 'Fixed Update Frequency' is enabled in the Engine section of game.project
-	-- Can be coupled with fixed updates of the physics simulation if 'Use Fixed Timestep' is enabled in
-	-- Physics section of game.project
-	-- Add update code here
-	-- Learn more: https://defold.com/manuals/script/
-	-- Remove this function if not needed
+function on_message(self, message_id, message, sender)
+	if message_id == hash("update_gui") then
+		local fame_label = gui.get_node("fame_label")
+		local fame_pie = gui.get_node("fame_pie")
+		gui.set_fill_angle(fame_pie, math.min(game_data.fame / game_data.fameObjective * 360, 360))
+		gui.set_text(fame_label, "fame: " .. game_data.fame)
+		local films_left_label = gui.get_node("films_left_label")
+		gui.set_text(films_left_label, "films left: " .. game_data.filmsLeft)
+
+		local dof_cursor = gui.get_node("dof_cursor")
+		gui.set_position(dof_cursor, vmath.vector3(375 + game_data.focus * 256, 32, 0))
+	end
 end
 
-function on_message(self, message_id, message, sender)
-	-- Add message-handling code here
-	-- Learn more: https://defold.com/manuals/message-passing/
-	-- Remove this function if not needed
-end
 
 function on_input(self, action_id, action)
 	-- Add input-handling code here. The game object this script is attached to

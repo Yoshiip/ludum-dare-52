@@ -9,7 +9,7 @@ embedded_components {
   "}\n"
   "textures {\n"
   "  sampler: \"texture_sampler\"\n"
-  "  texture: \"/main/assets/game.atlas\"\n"
+  "  texture: \"/main/assets/backgrounds.atlas\"\n"
   "}\n"
   ""
 }
