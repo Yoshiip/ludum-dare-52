@@ -13,4 +13,7 @@ images {
 images {
   image: "/main/assets/images/light.png"
 }
+images {
+  image: "/main/assets/images/cover.png"
+}
 extrude_borders: 2

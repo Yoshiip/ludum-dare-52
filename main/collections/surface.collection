@@ -20,7 +20,7 @@ instances {
     id: "door"
     properties {
       id: "collection_id"
-      value: "level1_proxy"
+      value: "menu_proxy"
       type: PROPERTY_TYPE_HASH
     }
   }
@@ -54,5 +54,9 @@ embedded_instances {
   ""
   position {
     z: -66.0
+  }
+  scale3 {
+    x: 0.05
+    y: 0.05
   }
 }
