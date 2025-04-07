@@ -5,7 +5,8 @@
 
 local M = {}
 
-
+M.camera = ""
+M.player_camera = ""
 M.fame = 25
 M.fameObjective = 100
 M.filmsLeft = 5

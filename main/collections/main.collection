@@ -21,7 +21,7 @@ embedded_instances {
   "embedded_components {\n"
   "  id: \"level1_proxy\"\n"
   "  type: \"collectionproxy\"\n"
-  "  data: \"collection: \\\"/main/collections/menu.collection\\\"\\n"
+  "  data: \"collection: \\\"/main/collections/level1.collection\\\"\\n"
   "\"\n"
   "}\n"
   "embedded_components {\n"

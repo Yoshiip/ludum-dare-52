@@ -1,0 +1,14 @@
+local game_data = require("main.game_data")
+
+
+go.property("parallax_x", 0.5)
+go.property("parallax_y", 0.1)
+go.property("base_pos", vmath.vector3())
+
+function init(self)
+	self.base_pos = go.get_position()
+end
+
+function update(self, dt)
+	go.set_position(vmath.vector3(self.base_pos.x + go.get_position(game_data.player_camera).x * self.parallax_x, self.base_pos.y, self.base_pos.z))
+end

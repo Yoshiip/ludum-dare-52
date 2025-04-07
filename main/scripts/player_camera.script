@@ -34,6 +34,7 @@ end
 
 function init(self)
 	self.mpos = vmath.vector3(0, 0, 90)
+	game_data.player_camera = msg.url()
 
 	msg.post(".", "acquire_input_focus")
 
@@ -68,7 +69,6 @@ function update(self, dt)
 	end
 
 	print(self.focus)
-	go.set("/camera#camera", "fov", self.focus)
 
 	if distance > 1 then
 		local dir = vmath.normalize(diff)
@@ -87,11 +87,9 @@ function update(self, dt)
 end
 
 function on_message(self, message_id, message, sender)
-	if message_id == hash("trigger_response") then -- <2>
-		if message.enter then -- <3>
-			print("dedans")
-		end
-	end
+	-- if message_id == hash("trigger_response") then
+	-- 	
+	-- end
 end
 
 local function take_photo(self)
@@ -108,7 +106,7 @@ local FOCUS_STEP = 0.05
 
 function on_input(self, action_id, action)
 	if action.id == nil then
-		self.mpos.x, self.mpos.y, self.mpos.z =  screen_to_world(action.x, action.y, 0, "main:/camera#camera")
+		self.mpos.x, self.mpos.y, self.mpos.z =  screen_to_world(action.x, action.y, 0, game_data.camera)
 	end
 
 	if action_id == hash("touch") then -- <6>
@@ -125,10 +123,4 @@ function on_input(self, action_id, action)
 		game_data.focus = math.max(game_data.focus - FOCUS_STEP, 0.0)
 		msg.post("/interface#gui", "update_gui", {})
 	end
-end
-
-function on_reload(self)
-	-- Add reload-handling code here
-	-- Learn more: https://defold.com/manuals/hot-reload/
-	-- Remove this function if not needed
 end

@@ -1,0 +1,5 @@
+local game_data = require("main.game_data")
+
+function update(self, dt)
+	go.set_position(vmath.vector3(go.get_position(game_data.player_camera).x / 4, 0, 100))
+end

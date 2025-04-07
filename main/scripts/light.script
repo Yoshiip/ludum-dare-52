@@ -1,0 +1,13 @@
+go.property("i", 0)
+go.property("base_pos", vmath.vector3())
+
+function init(self)
+	self.i = math.random()
+	self.base_pos = go.get_position()
+end
+
+function update(self, dt)
+	self.i = self.i + dt
+	go.set_position(vmath.vector3(self.base_pos.x, self.base_pos.y + math.cos(self.i) * 25, self.base_pos.z))
+	go.set_position(self.base_pos)
+end

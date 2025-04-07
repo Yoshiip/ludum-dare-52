@@ -1,11 +1,10 @@
 function init(self)
 	msg.post(".", "acquire_input_focus")
-	self.current_scene = "menu_proxy"
+	self.current_scene = "level1_proxy"
 	msg.post(msg.url(nil, nil, self.current_scene), "async_load")
 end
 
 function change_scene(self, new_proxy)
-	print("Changing scene to:", new_proxy)
 	msg.post(msg.url(nil, nil, self.current_scene), "disable")
 	msg.post(msg.url(nil, nil, self.current_scene), "unload")
 	self.next_scene = new_proxy

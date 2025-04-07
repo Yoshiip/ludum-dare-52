@@ -1,4 +1,4 @@
-name: "main"
+name: "level1"
 instances {
   id: "door"
   prototype: "/main/go/door.go"
@@ -12,88 +12,20 @@ instances {
   prototype: "/main/go/player.go"
 }
 instances {
-  id: "light"
-  prototype: "/main/go/light.go"
-  position {
-    x: -262.0
-    y: 126.0
-  }
+  id: "player_camera"
+  prototype: "/main/go/player_camera.go"
 }
 instances {
-  id: "camera"
-  prototype: "/main/go/camera.go"
+  id: "door1"
+  prototype: "/main/go/door.go"
+  position {
+    x: -167.0
+    y: -22.0
+  }
 }
 scale_along_z: 0
 embedded_instances {
-  id: "player_camera"
-  data: "components {\n"
-  "  id: \"player_camera\"\n"
-  "  component: \"/main/scripts/player_camera.script\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"sprite\"\n"
-  "  type: \"sprite\"\n"
-  "  data: \"default_animation: \\\"camera_frame\\\"\\n"
-  "material: \\\"/builtins/materials/sprite.material\\\"\\n"
-  "textures {\\n"
-  "  sampler: \\\"texture_sampler\\\"\\n"
-  "  texture: \\\"/main/assets/game.atlas\\\"\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"collisionobject\"\n"
-  "  type: \"collisionobject\"\n"
-  "  data: \"type: COLLISION_OBJECT_TYPE_TRIGGER\\n"
-  "mass: 0.0\\n"
-  "friction: 0.1\\n"
-  "restitution: 0.5\\n"
-  "group: \\\"default\\\"\\n"
-  "mask: \\\"default\\\"\\n"
-  "embedded_collision_shape {\\n"
-  "  shapes {\\n"
-  "    shape_type: TYPE_BOX\\n"
-  "    position {\\n"
-  "    }\\n"
-  "    rotation {\\n"
-  "    }\\n"
-  "    index: 0\\n"
-  "    count: 3\\n"
-  "  }\\n"
-  "  data: 160.0\\n"
-  "  data: 90.0\\n"
-  "  data: 10.0\\n"
-  "}\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"label\"\n"
-  "  type: \"label\"\n"
-  "  data: \"size {\\n"
-  "  x: 106.666664\\n"
-  "  y: 24.0\\n"
-  "}\\n"
-  "text: \\\"Label\\\"\\n"
-  "font: \\\"/builtins/fonts/default.font\\\"\\n"
-  "material: \\\"/builtins/fonts/label-df.material\\\"\\n"
-  "\"\n"
-  "  position {\n"
-  "    y: -129.0\n"
-  "  }\n"
-  "  scale {\n"
-  "    x: 3.0\n"
-  "    y: 3.0\n"
-  "    z: 3.0\n"
-  "  }\n"
-  "}\n"
-  ""
-  position {
-    y: 49.0
-    z: 6.0
-  }
-}
-embedded_instances {
-  id: "_config"
+  id: "loader"
   data: "components {\n"
   "  id: \"config\"\n"
   "  component: \"/main/scripts/config.script\"\n"
@@ -108,6 +40,18 @@ embedded_instances {
   "  id: \"batfactory\"\n"
   "  type: \"factory\"\n"
   "  data: \"prototype: \\\"/main/monsters/bat.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"camerafactory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/main/go/camera.go\\\"\\n"
+  "\"\n"
+  "}\n"
+  "embedded_components {\n"
+  "  id: \"lightsfactory\"\n"
+  "  type: \"factory\"\n"
+  "  data: \"prototype: \\\"/main/go/light.go\\\"\\n"
   "\"\n"
   "}\n"
   ""
@@ -125,7 +69,11 @@ embedded_instances {
 }
 embedded_instances {
   id: "background"
-  data: "embedded_components {\n"
+  data: "components {\n"
+  "  id: \"parallax\"\n"
+  "  component: \"/main/scripts/parallax.script\"\n"
+  "}\n"
+  "embedded_components {\n"
   "  id: \"sprite\"\n"
   "  type: \"sprite\"\n"
   "  data: \"default_animation: \\\"bg_front\\\"\\n"
@@ -156,4 +104,7 @@ embedded_instances {
   "\"\n"
   "}\n"
   ""
+  position {
+    z: -15.0
+  }
 }

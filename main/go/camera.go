@@ -1,3 +1,7 @@
+components {
+  id: "camera1"
+  component: "/main/scripts/camera.script"
+}
 embedded_components {
   id: "camera"
   type: "camera"
@@ -7,6 +11,5 @@ embedded_components {
   "far_z: 1000.0\n"
   "auto_aspect_ratio: 1\n"
   "orthographic_projection: 1\n"
-  "orthographic_zoom: 4.0\n"
   ""
 }
