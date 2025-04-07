@@ -1,5 +1,7 @@
 local game_data = require("main.game_data")
 
+local MAX_LEVEL = 4
+
 go.property("rarity", 0)
 
 local LAYERS_COUNT = 3
@@ -25,14 +27,34 @@ local function spawn_lights()
 	end
 end
 
+local function create_door(x, collection_id, fame)
+	local pos = vmath.vector3(x, 0, 0)
+	local door = factory.create("#doors_factory", pos, nil, {
+		collection_id = collection_id,
+		fame = fame,
+	})
+
+end
+
+local function spawn_doors()
+	if game_data.level > 0 then
+		create_door(-200, 'level' .. game_data.level - 1 .. 'proxy', 0)
+	end
+	if game_data.level < MAX_LEVEL then
+		create_door(200, 'level' .. game_data.level + 1 .. 'proxy', 0)
+	end
+end
+
 function init(self)
 	msg.post(".", "acquire_input_focus")
 	
 	spawn_layers()
 	spawn_bats()
 	spawn_lights()
-
+	spawn_doors()
 	
 	local camera_instance = factory.create("#camerafactory", vmath.vector3(0, 0, 100))
 	game_data.camera = msg.url(nil, camera_instance, "camera")
+
+	
 end

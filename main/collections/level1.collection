@@ -1,13 +1,5 @@
 name: "level1"
 instances {
-  id: "door"
-  prototype: "/main/go/door.go"
-  position {
-    x: 207.0
-    y: -22.0
-  }
-}
-instances {
   id: "player"
   prototype: "/main/go/player.go"
 }
@@ -16,49 +8,10 @@ instances {
   prototype: "/main/go/player_camera.go"
 }
 instances {
-  id: "door1"
-  prototype: "/main/go/door.go"
-  position {
-    x: -167.0
-    y: -22.0
-  }
+  id: "loader"
+  prototype: "/main/go/loader.go"
 }
 scale_along_z: 0
-embedded_instances {
-  id: "loader"
-  data: "components {\n"
-  "  id: \"config\"\n"
-  "  component: \"/main/scripts/config.script\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"layerfactory\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/main/go/layer.go\\\"\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"batfactory\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/main/monsters/bat.go\\\"\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"camerafactory\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/main/go/camera.go\\\"\\n"
-  "\"\n"
-  "}\n"
-  "embedded_components {\n"
-  "  id: \"lightsfactory\"\n"
-  "  type: \"factory\"\n"
-  "  data: \"prototype: \\\"/main/go/light.go\\\"\\n"
-  "\"\n"
-  "}\n"
-  ""
-  scale3 {
-    x: 1.5
-  }
-}
 embedded_instances {
   id: "interface"
   data: "components {\n"
@@ -89,6 +42,9 @@ embedded_instances {
   "  }\n"
   "}\n"
   ""
+  position {
+    z: 15.0
+  }
 }
 embedded_instances {
   id: "go"
@@ -105,6 +61,6 @@ embedded_instances {
   "}\n"
   ""
   position {
-    z: -15.0
+    z: -25.0
   }
 }

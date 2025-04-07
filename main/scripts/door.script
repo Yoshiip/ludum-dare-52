@@ -1,8 +1,15 @@
+local game_data = require("main.game_data")
+
 go.property("fame", 100)
 go.property("collection_id", hash("surface_proxy"))
 
 function update(self, dt)
 	msg.post("#label", "disable")
+	if game_data.fame >= self.fame then
+		label.set_text("#label", "[E] to interact")
+	else
+		label.set_text("#label", "Need " .. self.fame .. " fames!")
+	end
 end
 
 function on_message(self, message_id, message, sender)
